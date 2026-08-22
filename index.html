@@ -186,7 +186,29 @@
   <div class="footer__copy">© 2026 Tripti Crafts · Handwoven in India</div>
 </footer>
 
-<a href="index.html" class="back-to-gallery" aria-label="Back to all designs">← All designs</a>
+<div class="green-toggle" role="group" aria-label="Choose heritage green shade">
+  <span class="green-toggle__label">Green</span>
+  <div class="green-toggle__swatches">
+    <button type="button" class="green-toggle__swatch" data-green="#0e3116" aria-pressed="true"  style="background:#0e3116" aria-label="Pine"></button>
+    <button type="button" class="green-toggle__swatch" data-green="#123d1a" aria-pressed="false" style="background:#123d1a" aria-label="Deep Bottle"></button>
+    <button type="button" class="green-toggle__swatch" data-green="#154a20" aria-pressed="false" style="background:#154a20" aria-label="Fern"></button>
+    <button type="button" class="green-toggle__swatch" data-green="#075019" aria-pressed="false" style="background:#075019" aria-label="Your green"></button>
+    <button type="button" class="green-toggle__swatch" data-green="#1f5a2c" aria-pressed="false" style="background:#1f5a2c" aria-label="Foliage"></button>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var swatches = document.querySelectorAll('.green-toggle__swatch');
+    swatches.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.documentElement.style.setProperty('--green', btn.dataset.green);
+        swatches.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+        btn.setAttribute('aria-pressed', 'true');
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>

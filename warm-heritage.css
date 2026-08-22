@@ -1,4 +1,7 @@
 /* ===== Direction 1b — Warm Heritage · accent #7a2e2e ===== */
+/* Heritage-green accent is a single runtime-swappable token so the on-page
+   toggle can shift every green surface at once; lighter tints derive from it. */
+:root { --green: #0e3116; }
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -76,7 +79,7 @@ img { display: block; max-width: 100%; }
 
 /* announcement */
 .announce {
-  background: #7a2e2e;
+  background: var(--green);
   color: #f6e9d6;
   text-align: center;
   font-size: 12px;
@@ -193,7 +196,7 @@ img { display: block; max-width: 100%; }
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #123d1a;
+  background: var(--green);
   color: #d9b98a;
   font-family: 'DM Mono', monospace;
   font-size: 10px;
@@ -205,8 +208,8 @@ img { display: block; max-width: 100%; }
 .product__name { font-family: 'Marcellus', serif; font-size: 20px; margin: 16px 0 0; color: #3a2a20; }
 .product__sub { font-size: 12px; letter-spacing: .05em; color: #8a7350; margin: 3px 0 0; }
 .stock { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
-.stock__dot { width: 6px; height: 6px; border-radius: 50%; background: #1f5a2c; }
-.stock__label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #1f5a2c; }
+.stock__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+.stock__label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
 .stock--low .stock__dot { background: #c98a2c; }
 .stock--low .stock__label { color: #a97d3a; }
 .product__foot { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
@@ -236,11 +239,11 @@ img { display: block; max-width: 100%; }
 .makers__body { max-width: 440px; font-size: 16px; line-height: 1.8; color: #e6cfb4; margin: 0 0 30px; }
 
 /* values */
-.values { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid #e6d9bf; }
-.values__cell { padding: 40px 24px; text-align: center; border-right: 1px solid #e6d9bf; }
+.values { display: grid; grid-template-columns: repeat(4,1fr); background: color-mix(in srgb, var(--green) 10%, #faf4e9); border-top: 1px solid color-mix(in srgb, var(--green) 22%, #e6d9bf); border-bottom: 1px solid color-mix(in srgb, var(--green) 22%, #e6d9bf); }
+.values__cell { padding: 40px 24px; text-align: center; border-right: 1px solid color-mix(in srgb, var(--green) 22%, #e6d9bf); }
 .values__cell:last-child { border-right: 0; }
-.values__diamond { display: block; width: 8px; height: 8px; background: #1f5a2c; transform: rotate(45deg); margin: 0 auto 14px; }
-.values__label { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: #5a4b34; }
+.values__diamond { display: block; width: 8px; height: 8px; background: var(--green); transform: rotate(45deg); margin: 0 auto 14px; }
+.values__label { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: color-mix(in srgb, var(--green) 55%, #5a4b34); }
 
 /* newsletter section */
 .newsletter-sec { background: #f3ead6; padding: 88px 56px; text-align: center; }
@@ -282,7 +285,7 @@ img { display: block; max-width: 100%; }
 .newsletter-sec__fine { font-size: 12px; color: #8a7350; margin: 16px 0 0; letter-spacing: .03em; }
 
 /* footer */
-.footer { background: #332a20; color: #e6ddcb; padding: 76px 56px 46px; }
+.footer { background: var(--green); color: #e6ddcb; padding: 76px 56px 46px; }
 .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 44px; }
 .footer__wordmark { font-family: 'Marcellus', serif; font-size: 26px; color: #faf4e9; }
 .footer__tag { font-size: 14px; line-height: 1.7; color: #b3a892; margin-top: 14px; max-width: 280px; }
@@ -290,26 +293,45 @@ img { display: block; max-width: 100%; }
 .footer__label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: #8a7d66; margin-bottom: 12px; }
 .footer__social { margin-top: 16px; }
 .footer__social a { color: #c8bda6; }
-.footer__copy { margin-top: 56px; padding-top: 24px; border-top: 1px solid #47402f; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #8a7d66; }
+.footer__copy { margin-top: 56px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--green) 55%, #e6ddcb); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #8a7d66; }
 
-/* floating pill */
-.back-to-gallery {
+/* floating green-shade toggle */
+.green-toggle {
   position: fixed;
   left: 50%;
   bottom: 22px;
   transform: translateX(-50%);
   z-index: 999;
-  background: #7a2e2e;
-  color: #f7ecdb;
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 11px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #faf4e9;
+  border: 1px solid #e6d9bf;
+  padding: 9px 14px;
   border-radius: 40px;
   box-shadow: 0 8px 26px rgba(40,34,26,.28);
 }
-.back-to-gallery:hover { color: #fff; }
+.green-toggle__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #8a7d66;
+}
+.green-toggle__swatches { display: flex; gap: 7px; }
+.green-toggle__swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(51,42,32,.18);
+  padding: 0;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.green-toggle__swatch:hover { transform: scale(1.14); }
+.green-toggle__swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 2px #faf4e9, 0 0 0 3.5px #332a20;
+}
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
