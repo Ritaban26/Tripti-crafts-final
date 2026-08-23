@@ -1,7 +1,6 @@
 /* ===== Direction 1b — Warm Heritage · accent #7a2e2e ===== */
-/* Heritage-green accent is a single runtime-swappable token so the on-page
-   toggle can shift every green surface at once; lighter tints derive from it. */
-:root { --green: #0e3116; }
+/* Heritage-green accent: Deep Bottle, the chosen shade; lighter tints derive from it. */
+:root { --green: #123d1a; }
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -143,6 +142,41 @@ img { display: block; max-width: 100%; }
 
 .hero__img { min-height: 620px; }
 .hero__img .ph__cap { margin: 30px; }
+
+/* hero slider */
+.hero__slider { position: relative; overflow: hidden; touch-action: pan-y; cursor: grab; }
+.hero__slider:active { cursor: grabbing; }
+.hero__track { display: flex; height: 100%; will-change: transform; }
+.hero__slide {
+  position: relative;
+  flex: 0 0 100%;
+  min-height: inherit;
+  align-items: flex-end;
+}
+/* vary the weave tint per slide so the rotation reads clearly */
+.hero__slide:nth-child(2) { background: repeating-linear-gradient(135deg,#e6d3b8,#e6d3b8 11px,#efe0c6 11px,#efe0c6 22px); }
+.hero__slide:nth-child(3) { background: repeating-linear-gradient(135deg,#e9d8bb,#e9d8bb 11px,#d9b98a 11px,#d9b98a 22px); }
+.hero__slide:nth-child(4) { background: repeating-linear-gradient(135deg,#e2cdb0,#e2cdb0 11px,#ecdcc3 11px,#ecdcc3 22px); }
+.hero__slide .ph__cap { margin: 30px; }
+
+.hero__dots {
+  position: absolute; z-index: 3;
+  left: 0; right: 0; bottom: 18px;
+  display: flex; justify-content: center; gap: 9px;
+}
+.hero__dot {
+  width: 9px; height: 9px; padding: 0;
+  border-radius: 50%;
+  border: 1px solid #7a2e2e;
+  background: transparent;
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+}
+.hero__dot.is-active { background: #7a2e2e; transform: scale(1.15); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__track { transition: none !important; }
+}
 .orn-frame { position: absolute; top: 22px; left: 22px; right: 22px; bottom: 22px; border: 1px solid rgba(169,125,58,.6); pointer-events: none; }
 .orn-corner { position: absolute; width: 26px; height: 26px; }
 .orn-corner--tl { top: 14px; left: 14px; border-top: 2px solid #a97d3a; border-left: 2px solid #a97d3a; }
@@ -294,44 +328,6 @@ img { display: block; max-width: 100%; }
 .footer__social { margin-top: 16px; }
 .footer__social a { color: #c8bda6; }
 .footer__copy { margin-top: 56px; padding-top: 24px; border-top: 1px solid color-mix(in srgb, var(--green) 55%, #e6ddcb); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #8a7d66; }
-
-/* floating green-shade toggle */
-.green-toggle {
-  position: fixed;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #faf4e9;
-  border: 1px solid #e6d9bf;
-  padding: 9px 14px;
-  border-radius: 40px;
-  box-shadow: 0 8px 26px rgba(40,34,26,.28);
-}
-.green-toggle__label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #8a7d66;
-}
-.green-toggle__swatches { display: flex; gap: 7px; }
-.green-toggle__swatch {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid rgba(51,42,32,.18);
-  padding: 0;
-  cursor: pointer;
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.green-toggle__swatch:hover { transform: scale(1.14); }
-.green-toggle__swatch[aria-pressed="true"] {
-  box-shadow: 0 0 0 2px #faf4e9, 0 0 0 3.5px #332a20;
-}
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {

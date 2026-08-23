@@ -42,11 +42,25 @@
         <a href="#" class="btn btn--outline">Our story</a>
       </div>
     </div>
-    <div class="hero__img ph">
+    <div class="hero__img hero__slider" aria-roledescription="carousel" aria-label="Featured sarees">
+      <div class="hero__track">
+        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="1 of 4">
+          <span class="ph__cap">hero portrait · draped saree</span>
+        </div>
+        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="2 of 4">
+          <span class="ph__cap">jamdani weave · in progress</span>
+        </div>
+        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="3 of 4">
+          <span class="ph__cap">gold zari border · detail</span>
+        </div>
+        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="4 of 4">
+          <span class="ph__cap">the maker at her loom</span>
+        </div>
+      </div>
       <div class="orn-frame"></div>
       <div class="orn-corner orn-corner--tl"></div>
       <div class="orn-corner orn-corner--br"></div>
-      <span class="ph__cap">hero portrait · draped saree</span>
+      <div class="hero__dots" role="tablist" aria-label="Choose slide"></div>
     </div>
   </section>
 
@@ -186,29 +200,89 @@
   <div class="footer__copy">© 2026 Tripti Crafts · Handwoven in India</div>
 </footer>
 
-<div class="green-toggle" role="group" aria-label="Choose heritage green shade">
-  <span class="green-toggle__label">Green</span>
-  <div class="green-toggle__swatches">
-    <button type="button" class="green-toggle__swatch" data-green="#0e3116" aria-pressed="true"  style="background:#0e3116" aria-label="Pine"></button>
-    <button type="button" class="green-toggle__swatch" data-green="#123d1a" aria-pressed="false" style="background:#123d1a" aria-label="Deep Bottle"></button>
-    <button type="button" class="green-toggle__swatch" data-green="#154a20" aria-pressed="false" style="background:#154a20" aria-label="Fern"></button>
-    <button type="button" class="green-toggle__swatch" data-green="#075019" aria-pressed="false" style="background:#075019" aria-label="Your green"></button>
-    <button type="button" class="green-toggle__swatch" data-green="#1f5a2c" aria-pressed="false" style="background:#1f5a2c" aria-label="Foliage"></button>
-  </div>
-</div>
-
 <script>
-  (function () {
-    var swatches = document.querySelectorAll('.green-toggle__swatch');
-    swatches.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.documentElement.style.setProperty('--green', btn.dataset.green);
-        swatches.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
-        btn.setAttribute('aria-pressed', 'true');
-      });
-    });
-  })();
-</script>
+(function () {
+  var slider = document.querySelector('.hero__slider');
+  if (!slider) return;
+  var track = slider.querySelector('.hero__track');
+  var slides = Array.prototype.slice.call(slider.querySelectorAll('.hero__slide'));
+  var dotsWrap = slider.querySelector('.hero__dots');
+  var count = slides.length;
+  var index = 0;
+  var AUTOPLAY_MS = 4500;
+  var timer = null;
 
+  // build dots
+  var dots = slides.map(function (_, i) {
+    var b = document.createElement('button');
+    b.className = 'hero__dot';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    b.addEventListener('click', function () { go(i); restart(); });
+    dotsWrap.appendChild(b);
+    return b;
+  });
+
+  function render(offsetPct) {
+    var base = -index * 100;
+    track.style.transform = 'translateX(' + (base + (offsetPct || 0)) + '%)';
+    dots.forEach(function (d, i) {
+      d.classList.toggle('is-active', i === index);
+      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+    });
+  }
+  function go(i) {
+    index = (i + count) % count;
+    track.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1)';
+    render(0);
+  }
+  function next() { go(index + 1); }
+
+  function start() { stop(); timer = setInterval(next, AUTOPLAY_MS); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { start(); }
+
+  // pause on hover (desktop)
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', start);
+  // pause when tab not visible
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else start();
+  });
+
+  // swipe / drag — works with touch and mouse
+  var startX = 0, dragging = false, width = 1;
+  function down(x) {
+    dragging = true; startX = x; width = slider.clientWidth || 1;
+    track.style.transition = 'none';
+    stop();
+  }
+  function move(x) {
+    if (!dragging) return;
+    render(((x - startX) / width) * 100);
+  }
+  function up(x) {
+    if (!dragging) return;
+    dragging = false;
+    var dx = x - startX;
+    var threshold = width * 0.15;
+    if (dx <= -threshold) go(index + 1);
+    else if (dx >= threshold) go(index - 1);
+    else go(index);
+    start();
+  }
+
+  slider.addEventListener('touchstart', function (e) { down(e.touches[0].clientX); }, { passive: true });
+  slider.addEventListener('touchmove', function (e) { move(e.touches[0].clientX); }, { passive: true });
+  slider.addEventListener('touchend', function (e) { up((e.changedTouches[0] || {}).clientX || startX); });
+
+  slider.addEventListener('mousedown', function (e) { e.preventDefault(); down(e.clientX); });
+  window.addEventListener('mousemove', function (e) { move(e.clientX); });
+  window.addEventListener('mouseup', function (e) { up(e.clientX); });
+
+  render(0);
+  start();
+})();
+</script>
 </body>
 </html>
