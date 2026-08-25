@@ -390,6 +390,8 @@ img { display: block; max-width: 100%; }
 .footer__wordmark { font-family: 'Marcellus', serif; font-size: 26px; color: var(--cream); }
 .footer__tag { font-size: 14px; line-height: 1.7; color: var(--footer-tag); margin-top: 14px; max-width: 280px; }
 .footer__col { font-size: 14px; line-height: 2.1; color: var(--footer-col); }
+.footer__col a { color: inherit; }
+.footer__col a:hover { color: var(--gold-light); }
 .footer__label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--footer-label); margin-bottom: 12px; }
 .footer__social { margin-top: 16px; }
 .footer__social a { color: var(--footer-col); }
