@@ -424,7 +424,8 @@ img { display: block; max-width: 100%; }
 .ostory-hero__rule { height: 1px; width: 40px; background: var(--line-gold); }
 .ostory-hero__note { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); }
 .ostory-hero__frame { position: relative; }
-.ostory-hero__img { width: 100%; }
+.ostory-hero__img { width: 100%; overflow: hidden; background: var(--ph-a); }
+.ostory-hero__img img { width: 100%; height: 100%; object-fit: cover; }
 .ostory-hero__frame .orn-corner--tl { top: -10px; left: -10px; border-top: 2px solid var(--green-bright); border-left: 2px solid var(--green-bright); }
 .ostory-hero__frame .orn-corner--br { bottom: -10px; right: -10px; border-bottom: 2px solid var(--green-bright); border-right: 2px solid var(--green-bright); }
 
@@ -442,7 +443,9 @@ img { display: block; max-width: 100%; }
   min-height: 480px; height: 100%;
   background: repeating-linear-gradient(45deg,var(--ph-g),var(--ph-g) 12px,var(--ph-h) 12px,var(--ph-h) 24px);
   align-items: flex-end;
+  overflow: hidden;
 }
+.chapter__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .chapter--rev .chapter__media { order: 2; }
 .chapter__text { max-width: 520px; }
 .chapter__num { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin: 0 0 18px; }
