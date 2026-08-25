@@ -13,22 +13,50 @@
 
 <div class="announce">Handwoven in Bengal · Complimentary shipping on orders over ₹5,000</div>
 
-<input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-<header class="hdr">
-  <label for="nav-toggle" class="hdr__burger" aria-label="Toggle menu">☰</label>
-  <nav class="hdr__nav hdr__nav--left">
+<div class="topbar">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <header class="hdr">
+    <label for="nav-toggle" class="hdr__burger" aria-label="Toggle menu">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </label>
+    <nav class="hdr__nav hdr__nav--left">
+      <a href="#">New Arrivals</a>
+      <a href="#">Sarees ▾</a>
+      <a href="#">Shop by Weave</a>
+    </nav>
+    <a href="#" class="hdr__brand"><img src="logo.svg" class="hdr__logo" alt=""><span>Tripti Crafts</span></a>
+    <nav class="hdr__nav hdr__nav--right">
+      <a href="our-story.html">Our Story</a>
+      <a href="#">Search</a>
+      <a href="#">Cart (0)</a>
+    </nav>
+    <div class="hdr__actions">
+      <a href="#" aria-label="Wishlist">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5S3.8 15.4 3.8 9.6A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 8.2 1.9c0 5.8-8.2 10.9-8.2 10.9Z"/></svg>
+      </a>
+      <a href="#" aria-label="Cart">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"/><path d="M9 8V6.5a3 3 0 1 1 6 0V8"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <div class="msearch">
+    <form class="msearch__form" onsubmit="return false">
+      <svg class="icon msearch__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <input type="search" placeholder="Search…" aria-label="Search sarees">
+    </form>
+  </div>
+
+  <nav class="mcats" aria-label="Browse categories">
     <a href="#">New Arrivals</a>
-    <a href="#">Sarees ▾</a>
-    <a href="#">Shop by Weave</a>
+    <a href="#">Tussar</a>
+    <a href="#">Kalamkari</a>
+    <a href="#">Kantha</a>
+    <a href="#">Khadi</a>
+    <a href="#">Pure Silk</a>
+    <a href="#">Kota</a>
   </nav>
-  <a href="#" class="hdr__brand"><img src="logo.svg" class="hdr__logo" alt=""><span>Tripti Crafts</span></a>
-  <nav class="hdr__nav hdr__nav--right">
-    <a href="our-story.html">Our Story</a>
-    <a href="#">Search</a>
-    <a href="#">Cart (0)</a>
-  </nav>
-  <a href="#" class="hdr__cart">Cart</a>
-</header>
+</div>
 
 <main>
   <!-- hero -->
@@ -204,7 +232,49 @@
   <div class="footer__copy">© 2026 Tripti Crafts · Handwoven in India</div>
 </footer>
 
+<nav class="appbar" aria-label="Quick navigation">
+  <a class="appbar__item" href="#">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+    <span>Login</span>
+  </a>
+  <a class="appbar__item" href="#">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg>
+    <span>Categories</span>
+  </a>
+  <a class="appbar__item appbar__item--center" href="#" aria-label="Search">
+    <span class="appbar__fab">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    </span>
+    <span>Search</span>
+  </a>
+  <a class="appbar__item" href="#">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.3 5.1 5.7.6-4.2 3.9 1.1 5.6-4.9-2.8-4.9 2.8 1.1-5.6L4 8.7l5.7-.6Z"/></svg>
+    <span>New Arrivals</span>
+  </a>
+  <a class="appbar__item" href="#">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"/><path d="M9 8V6.5a3 3 0 1 1 6 0V8"/></svg>
+    <span>Cart</span>
+  </a>
+</nav>
+
 <script>
+// bottom bar hides on scroll down, returns on scroll up
+(function () {
+  var bar = document.querySelector('.appbar');
+  if (!bar) return;
+  var last = window.pageYOffset;
+  var THRESHOLD = 8;      // ignore jitter
+  var REVEAL_AT = 90;     // always visible near the top of the page
+
+  window.addEventListener('scroll', function () {
+    var y = window.pageYOffset;
+    var dy = y - last;
+    if (Math.abs(dy) < THRESHOLD) return;
+    last = y;
+    bar.classList.toggle('appbar--hidden', y > REVEAL_AT && dy > 0);
+  }, { passive: true });
+})();
+
 (function () {
   var slider = document.querySelector('.hero__slider');
   if (!slider) return;
