@@ -1081,7 +1081,35 @@ fieldset.payment { border: 1px solid var(--line); padding: 22px 24px; margin-top
 
   .cart-page, .checkout-page { grid-template-columns: 1fr; gap: 30px; }
   .cart_totals, .order-review { position: static; }
-  .shop_table th:nth-child(2), .shop_table td:nth-child(2) { display: none; }
+
+  /* cart: the order-history table (account) keeps its default look; the
+     cart line-item table stacks into cards so nothing runs off-screen */
+  .cart-page .shop_table thead { display: none; }
+  .cart-page .shop_table,
+  .cart-page .shop_table tbody { display: block; width: 100%; }
+  .cart-page .shop_table tr {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "info sub" "qty sub";
+    align-items: start;
+    column-gap: 14px;
+    row-gap: 12px;
+    padding: 20px 0;
+    padding-left: 86px;               /* room for the absolute thumbnail */
+    border-bottom: 1px solid var(--line);
+  }
+  .cart-page .shop_table td { display: block; padding: 0; border: 0; }
+  .cart-page .shop_table td:nth-child(1) { grid-area: info; }   /* product */
+  .cart-page .shop_table td:nth-child(2) { display: none; }     /* unit price col */
+  .cart-page .shop_table td:nth-child(3) { grid-area: qty; align-self: center; }
+  .cart-page .shop_table td:nth-child(4) { grid-area: sub; align-self: center; font-size: 15px; color: var(--ink-heading); white-space: nowrap; }
+  .cart-page .cart-item { display: block; }
+  .cart-page .cart-item__img { position: absolute; left: 0; top: 20px; width: 72px; margin: 0; }
+
+  /* smaller quantity stepper so rows never overflow narrow screens */
+  .quantity button { width: 38px; height: 44px; }
+  .quantity input { width: 44px; height: 44px; }
 
   .account-auth { grid-template-columns: 1fr; gap: 22px; }
   .auth-card { padding: 30px 24px; }
