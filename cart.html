@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart — Tripti Crafts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Bengali:wght@400;500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="warm-heritage.css">
+</head>
+<body>
+
+<div class="announce">Handwoven in Bengal · Complimentary shipping on orders over ₹5,000</div>
+
+<div class="topbar">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+  <header class="hdr">
+    <label for="nav-toggle" class="hdr__burger" aria-label="Toggle menu">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </label>
+    <nav class="hdr__nav hdr__nav--left">
+      <a href="shop.html">New Arrivals</a>
+      <a href="shop.html">Sarees</a>
+      <a href="shop.html">Shop by Weave</a>
+    </nav>
+    <a href="index.html" class="hdr__brand"><img src="logo.svg" class="hdr__logo" alt=""><span>Tripti Crafts</span></a>
+    <nav class="hdr__nav hdr__nav--right">
+      <a href="our-story.html">Our Story</a>
+      <a href="shop.html">Search</a>
+      <a href="cart.html">Cart (2)</a>
+    </nav>
+    <div class="hdr__actions">
+      <a href="wishlist.html" aria-label="Wishlist">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5S3.8 15.4 3.8 9.6A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 8.2 1.9c0 5.8-8.2 10.9-8.2 10.9Z"/></svg>
+      </a>
+      <a href="cart.html" aria-label="Cart">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"/><path d="M9 8V6.5a3 3 0 1 1 6 0V8"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <div class="msearch">
+    <form class="msearch__form" onsubmit="return false">
+      <svg class="icon msearch__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <input type="search" placeholder="Search…" aria-label="Search sarees">
+    </form>
+  </div>
+
+  <nav class="mcats" aria-label="Browse categories">
+    <a href="shop.html">New Arrivals</a>
+    <a href="shop.html">Tussar</a>
+    <a href="shop.html">Kalamkari</a>
+    <a href="shop.html">Kantha</a>
+    <a href="shop.html">Khadi</a>
+    <a href="shop.html">Pure Silk</a>
+    <a href="shop.html">Kota</a>
+  </nav>
+</div>
+
+<main>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumb__sep">/</span><span>Cart</span></nav>
+  <div class="page-head"><h1 class="page-head__title">Your cart</h1></div>
+  <div class="woocommerce">
+    <div class="cart-page">
+      <div>
+        <table class="shop_table">
+          <thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th class="text-right">Subtotal</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="cart-item">
+                  <img class="cart-item__img" src="images/products/tc10227-noir.jpeg" alt="Tusser Silk Jal">
+                  <div>
+                    <div class="cart-item__name">Tusser Silk Jal — Noir</div>
+                    <div class="cart-item__meta">TC10227 · Pure Tusser Silk</div>
+                    <button class="cart-remove" aria-label="Remove item">Remove</button>
+                  </div>
+                </div>
+              </td>
+              <td>₹28,500</td>
+              <td>
+                <div class="quantity">
+                  <button type="button" aria-label="Decrease">−</button>
+                  <input type="text" value="1" aria-label="Quantity">
+                  <button type="button" aria-label="Increase">+</button>
+                </div>
+              </td>
+              <td class="text-right">₹28,500</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="cart-item">
+                  <img class="cart-item__img" src="images/products/tc10230-azure-kantha.jpeg" alt="Cotton Kantha Mirror">
+                  <div>
+                    <div class="cart-item__name">Cotton Kantha Mirror</div>
+                    <div class="cart-item__meta">TC10046 · Handwoven cotton</div>
+                    <button class="cart-remove" aria-label="Remove item">Remove</button>
+                  </div>
+                </div>
+              </td>
+              <td>₹4,650</td>
+              <td>
+                <div class="quantity">
+                  <button type="button" aria-label="Decrease">−</button>
+                  <input type="text" value="1" aria-label="Quantity">
+                  <button type="button" aria-label="Increase">+</button>
+                </div>
+              </td>
+              <td class="text-right">₹4,650</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <aside class="cart_totals">
+        <h2>Cart totals</h2>
+        <div class="totals-row"><span>Subtotal</span><span>₹33,150</span></div>
+        <div class="coupon">
+          <input type="text" placeholder="Coupon code" aria-label="Coupon code">
+          <button type="button">Apply</button>
+        </div>
+        <div class="totals-row"><span>Shipping</span><span>Free</span></div>
+        <div class="totals-row totals-row--grand"><span>Total</span><span>₹33,150</span></div>
+        <a href="checkout.html" class="btn btn--full single_add_to_cart_button" style="margin-top:22px;display:block;text-align:center;">Proceed to checkout</a>
+        <a href="shop.html" class="link-underline" style="margin-top:20px;">Continue shopping →</a>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__grid">
+    <div class="footer__brand">
+      <div class="footer__wordmark">Tripti Crafts</div>
+      <p class="footer__tag">Carrying her spirit forward — handwoven sarees made slowly, with love.</p>
+    </div>
+    <div class="footer__col">
+      <div class="footer__label">Shop</div>
+      <div><a href="shop.html">All sarees</a></div>
+      <div><a href="shop.html">Shop by weave</a></div>
+      <div><a href="shop.html">New arrivals</a></div>
+      <div><a href="wishlist.html">Wishlist</a></div>
+      <div><a href="my-account.html">My account</a></div>
+    </div>
+    <div class="footer__col">
+      <div class="footer__label">Help</div>
+      <div><a href="contact.html">Contact</a></div>
+      <div><a href="shipping.html">Shipping</a></div>
+      <div><a href="returns.html">Returns</a></div>
+      <div><a href="exchange.html">Exchange</a></div>
+      <div><a href="saree-care.html">Saree care</a></div>
+      <div><a href="faq.html">FAQs</a></div>
+      <div><a href="track-order.html">Track order</a></div>
+    </div>
+    <div class="footer__col">
+      <div class="footer__label">Contact</div>
+      <div><a href="our-story.html">Our story</a></div>
+      <div>hello@tripticrafts.com</div>
+      <div>Kolkata, West Bengal</div>
+      <div class="footer__social"><a href="#">Instagram</a> · <a href="#">Facebook</a></div>
+    </div>
+  </div>
+  <div class="footer__copy">© 2026 Tripti Crafts · Handwoven in India</div>
+</footer>
+
+<nav class="appbar" aria-label="Quick navigation">
+  <a class="appbar__item" href="my-account.html">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+    <span>Login</span>
+  </a>
+  <a class="appbar__item" href="shop.html">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg>
+    <span>Categories</span>
+  </a>
+  <a class="appbar__item appbar__item--center" href="shop.html" aria-label="Search">
+    <span class="appbar__fab">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    </span>
+    <span>Search</span>
+  </a>
+  <a class="appbar__item" href="wishlist.html">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5S3.8 15.4 3.8 9.6A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 8.2 1.9c0 5.8-8.2 10.9-8.2 10.9Z"/></svg>
+    <span>Wishlist</span>
+  </a>
+  <a class="appbar__item" href="cart.html">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"/><path d="M9 8V6.5a3 3 0 1 1 6 0V8"/></svg>
+    <span>Cart</span>
+  </a>
+</nav>
+
+<script>
+(function () {
+  var bar = document.querySelector('.appbar');
+  if (!bar) return;
+  var last = window.pageYOffset;
+  var THRESHOLD = 8, REVEAL_AT = 90;
+  window.addEventListener('scroll', function () {
+    var y = window.pageYOffset, dy = y - last;
+    if (Math.abs(dy) < THRESHOLD) return;
+    last = y;
+    bar.classList.toggle('appbar--hidden', y > REVEAL_AT && dy > 0);
+  }, { passive: true });
+})();
+
+</script>
+</body>
+</html>
