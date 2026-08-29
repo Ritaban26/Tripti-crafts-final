@@ -345,6 +345,28 @@ img { display: block; max-width: 100%; }
 .values__diamond { display: block; width: 8px; height: 8px; background: var(--green); transform: rotate(45deg); margin: 0 auto 14px; }
 .values__label { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: color-mix(in srgb, var(--green) 55%, var(--ink-muted)); }
 
+/* instagram */
+.insta { padding: 88px 56px; text-align: center; }
+.insta__head { margin-bottom: 44px; }
+.insta__head .eyebrow { margin-bottom: 14px; }
+.insta__handle { display: inline-block; margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: .12em; color: var(--maroon-deep); }
+.insta__grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; max-width: 1080px; margin: 0 auto; }
+.insta__tile { aspect-ratio: 1; align-items: flex-end; overflow: hidden; }
+.insta__tile .ph__cap { margin: 14px; }
+.insta__icon {
+  position: absolute; top: 12px; right: 12px;
+  color: var(--cream); opacity: 0;
+  transition: opacity .3s ease;
+}
+.insta__icon svg { width: 22px; height: 22px; display: block; }
+.insta__tile::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--scrim-dark); opacity: 0;
+  transition: opacity .3s ease;
+}
+.insta__tile:hover::before, .insta__tile:hover .insta__icon { opacity: 1; }
+.insta__cta { margin-top: 40px; }
+
 /* newsletter section */
 .newsletter-sec { background: var(--cream-warm); padding: 88px 56px; text-align: center; }
 .newsletter-sec .divider { padding: 0 0 26px; }
@@ -570,6 +592,7 @@ img { display: block; max-width: 100%; }
 
   .lexicon { grid-template-columns: 1fr 1fr; }
   .lexicon__item:nth-child(2) { border-right: 0; }
+  .lexicon__item:last-child { grid-column: 1 / -1; border-right: 0; }
   .lexicon__item { border-bottom: 1px solid color-mix(in srgb, var(--green) 16%, var(--line)); }
   .lexicon__item:nth-last-child(-n+1) { border-bottom: 0; }
 }
@@ -729,6 +752,11 @@ img { display: block; max-width: 100%; }
   .values { grid-template-columns: 1fr 1fr; }
   .values__cell:nth-child(2) { border-right: 0; }
   .values__cell { border-bottom: 1px solid var(--line); }
+
+  .insta { padding: 48px 24px; }
+  .insta__head { margin-bottom: 26px; }
+  .insta__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .insta__cta { margin-top: 28px; }
 
   .newsletter-sec { padding: 48px 24px; }
   .newsletter-sec__title { font-size: 28px; }
