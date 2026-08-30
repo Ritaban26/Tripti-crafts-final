@@ -345,16 +345,31 @@ img { display: block; max-width: 100%; }
 .values__diamond { display: block; width: 8px; height: 8px; background: var(--green); transform: rotate(45deg); margin: 0 auto 14px; }
 .values__label { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: color-mix(in srgb, var(--green) 55%, var(--ink-muted)); }
 
-/* instagram */
-.insta { padding: 88px 56px; text-align: center; }
-.insta__head { margin-bottom: 44px; }
-.insta__head .eyebrow { margin-bottom: 14px; }
-.insta__handle { display: inline-block; margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: .12em; color: var(--maroon-deep); }
-.insta__grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; max-width: 1080px; margin: 0 auto; }
-.insta__tile { aspect-ratio: 1; align-items: flex-end; overflow: hidden; }
-.insta__tile .ph__cap { margin: 14px; }
+/* instagram — film strip */
+.insta { padding: 88px 0 96px; text-align: center; background: var(--maroon-shade); color: var(--on-maroon); }
+.insta__head { margin-bottom: 44px; padding: 0 56px; }
+.insta__head .section-title { color: var(--gold-pale); }
+.insta__head .eyebrow { margin-bottom: 14px; color: var(--gold-light); }
+.insta__handle { display: inline-block; margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: .12em; color: var(--gold-light); }
+
+.filmstrip { overflow: hidden; width: 100%; }
+.filmstrip__track {
+  display: flex; justify-content: center; align-items: stretch;
+  gap: 6px; height: 520px; min-width: max-content; margin: 0 auto;
+}
+.insta__tile {
+  position: relative; flex: 0 0 300px; height: 100%;
+  align-items: flex-end; overflow: hidden;
+}
+.insta__tile--focal { flex-basis: 660px; }
+.insta__cap {
+  position: absolute; left: 22px; bottom: 22px; z-index: 2;
+  font-family: 'DM Mono', monospace; font-size: 12px;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--on-maroon);
+  background: rgba(94,37,37,.55); padding: 5px 10px;
+}
 .insta__icon {
-  position: absolute; top: 12px; right: 12px;
+  position: absolute; top: 16px; right: 16px; z-index: 2;
   color: var(--cream); opacity: 0;
   transition: opacity .3s ease;
 }
@@ -365,7 +380,7 @@ img { display: block; max-width: 100%; }
   transition: opacity .3s ease;
 }
 .insta__tile:hover::before, .insta__tile:hover .insta__icon { opacity: 1; }
-.insta__cta { margin-top: 40px; }
+.insta__cta { display: inline-block; margin-top: 44px; color: var(--gold-pale); }
 
 /* newsletter section */
 .newsletter-sec { background: var(--cream-warm); padding: 88px 56px; text-align: center; }
@@ -597,6 +612,36 @@ img { display: block; max-width: 100%; }
   .lexicon__item:nth-last-child(-n+1) { border-bottom: 0; }
 }
 
+/* ---- horizontal-scroll affordance ----
+   JS wraps each swipeable rail in .scroller. On desktop the wrapper is
+   inert (display:contents) so it never affects the grid layouts; on mobile
+   it becomes a positioned box that paints edge fades + chevrons to signal
+   there's more content to swipe in either direction. */
+.scroller { display: contents; }
+
+@media (max-width: 768px) {
+  .scroller { display: block; position: relative; --scroll-fade: #faf4e9; }
+  .weave .scroller { --scroll-fade: #f3ead6; }
+  .scroller::before, .scroller::after {
+    content: ""; position: absolute; top: 0; bottom: 0; width: 46px;
+    pointer-events: none; opacity: 0; transition: opacity .22s ease; z-index: 6;
+  }
+  .scroller::after {
+    right: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='15' viewBox='0 0 24 24' fill='none' stroke='%237a2e2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat right 12px center,
+      linear-gradient(to left, var(--scroll-fade), transparent);
+  }
+  .scroller::before {
+    left: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='15' viewBox='0 0 24 24' fill='none' stroke='%237a2e2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 6-6 6 6 6'/%3E%3C/svg%3E") no-repeat left 12px center,
+      linear-gradient(to right, var(--scroll-fade), transparent);
+  }
+  .scroller--more::after { opacity: 1; }
+  .scroller--back::before { opacity: 1; }
+}
+
 @media (max-width: 768px) {
   .announce { font-size: 10px; letter-spacing: .08em; padding: 9px; }
   .hdr { padding: 16px 20px; }
@@ -724,10 +769,21 @@ img { display: block; max-width: 100%; }
   .story__title { font-size: 32px; }
   .body { font-size: 14px; }
 
-  .weave { padding: 44px 24px; }
-  .weave__head { margin-bottom: 28px; }
+  .weave { padding: 44px 0 44px 24px; }
+  .weave__head { margin-bottom: 28px; padding-right: 24px; }
   .section-title { font-size: 30px; }
-  .weave__grid { grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .weave__grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-right: 24px;
+    scrollbar-width: none;
+  }
+  .weave__grid::-webkit-scrollbar { display: none; }
+  .weave__item { flex: 0 0 42%; scroll-snap-align: start; }
   .weave__label { font-size: 11px; }
 
   .favourites { padding: 44px 0 44px 24px; }
@@ -753,10 +809,13 @@ img { display: block; max-width: 100%; }
   .values__cell:nth-child(2) { border-right: 0; }
   .values__cell { border-bottom: 1px solid var(--line); }
 
-  .insta { padding: 48px 24px; }
-  .insta__head { margin-bottom: 26px; }
-  .insta__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .insta__cta { margin-top: 28px; }
+  .insta { padding: 56px 0 60px; }
+  .insta__head { margin-bottom: 28px; padding: 0 24px; }
+  .filmstrip__track { height: 300px; gap: 4px; }
+  .insta__tile { flex-basis: 180px; }
+  .insta__tile--focal { flex-basis: 300px; }
+  .insta__cap { left: 12px; bottom: 12px; font-size: 10px; letter-spacing: .16em; padding: 4px 7px; }
+  .insta__cta { margin-top: 30px; }
 
   .newsletter-sec { padding: 48px 24px; }
   .newsletter-sec__title { font-size: 28px; }
