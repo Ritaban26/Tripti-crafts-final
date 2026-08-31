@@ -65,7 +65,15 @@
   </div>
   <div class="woocommerce">
     <div class="shop-layout">
-      <aside class="widget-area">
+      <input type="checkbox" id="filter-toggle" class="filter-toggle" hidden>
+      <label for="filter-toggle" class="filter-backdrop" aria-hidden="true"></label>
+      <aside class="widget-area" aria-label="Product filters">
+        <div class="widget-area__head">
+          <span class="widget-area__title">Filters</span>
+          <label for="filter-toggle" class="widget-area__close" aria-label="Close filters">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </label>
+        </div>
         <div class="widget">
           <h3 class="widget__title">Shop for</h3>
           <ul>
@@ -131,6 +139,10 @@
       </aside>
       <div class="shop-content">
         <div class="shop-toolbar">
+          <label for="filter-toggle" class="filter-open">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+            Filters
+          </label>
           <p class="woocommerce-result-count">Showing 1–9 of 36 results</p>
           <form class="woocommerce-ordering">
             <select aria-label="Sort products">

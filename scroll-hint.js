@@ -4,7 +4,7 @@
    whether content is hidden to the right / left. Styling lives in
    warm-heritage.css and applies at every viewport. */
 (function () {
-  var SELECTORS = ['.mcats', '.weave__grid', '.grid-4', '.widget-area', '.wc-tabs', '.account-nav'];
+  var SELECTORS = ['.mcats', '.weave__grid', '.grid-4', '.wc-tabs', '.account-nav'];
 
   var rails = [];
   SELECTORS.forEach(function (sel) {
