@@ -279,9 +279,18 @@ img { display: block; max-width: 100%; }
 .weave { background: var(--cream-warm); padding: 82px 56px; }
 .weave__head { text-align: center; margin-bottom: 52px; }
 .weave__head .eyebrow { margin-bottom: 14px; }
-.weave__grid { display: grid; grid-template-columns: repeat(6,1fr); gap: 26px; }
-.weave__item { text-align: center; }
+.weave__grid {
+  display: flex;
+  gap: 26px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+.weave__grid::-webkit-scrollbar { display: none; }
+.weave__item { flex: 0 0 150px; text-align: center; scroll-snap-align: start; }
 .weave__circle {
+  width: 150px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: repeating-linear-gradient(135deg,var(--ph-i),var(--ph-i) 9px,var(--ph-j) 9px,var(--ph-j) 18px);
@@ -660,33 +669,32 @@ img { display: block; max-width: 100%; }
 }
 
 /* ---- horizontal-scroll affordance ----
-   JS wraps each swipeable rail in .scroller. On desktop the wrapper is
-   inert (display:contents) so it never affects the grid layouts; on mobile
-   it becomes a positioned box that paints edge fades + chevrons to signal
-   there's more content to swipe in either direction. */
-.scroller { display: contents; }
+   JS wraps each swipeable rail in .scroller and adds --more / --back only when
+   the rail actually overflows. The wrapper stays inert (display:contents) while
+   everything fits, so it never touches layout; the moment content overflows —
+   at ANY viewport, desktop or phone — it becomes a positioned box that paints
+   edge fades + chevrons signalling there is more to scroll. Same behaviour and
+   same indicators everywhere; hidden only when nothing is clipped. */
+.scroller { display: contents; --scroll-fade: #faf4e9; }
+.weave .scroller { --scroll-fade: #f3ead6; }
 
-@media (max-width: 768px) {
-  .scroller { display: block; position: relative; --scroll-fade: #faf4e9; }
-  .weave .scroller { --scroll-fade: #f3ead6; }
-  .scroller::before, .scroller::after {
-    content: ""; position: absolute; top: 0; bottom: 0; width: 46px;
-    pointer-events: none; opacity: 0; transition: opacity .22s ease; z-index: 6;
-  }
-  .scroller::after {
-    right: 0;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='15' viewBox='0 0 24 24' fill='none' stroke='%237a2e2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat right 12px center,
-      linear-gradient(to left, var(--scroll-fade), transparent);
-  }
-  .scroller::before {
-    left: 0;
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='15' viewBox='0 0 24 24' fill='none' stroke='%237a2e2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 6-6 6 6 6'/%3E%3C/svg%3E") no-repeat left 12px center,
-      linear-gradient(to right, var(--scroll-fade), transparent);
-  }
-  .scroller--more::after { opacity: 1; }
-  .scroller--back::before { opacity: 1; }
+.scroller--more, .scroller--back { display: block; position: relative; }
+
+.scroller--more::after, .scroller--back::before {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 64px;
+  pointer-events: none; z-index: 6;
+}
+.scroller--more::after {
+  right: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='34' viewBox='0 0 24 24' fill='none' stroke='%237a2e2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 6 6 6-6 6'/%3E%3C/svg%3E") no-repeat right 16px center,
+    linear-gradient(to left, var(--scroll-fade), transparent);
+}
+.scroller--back::before {
+  left: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='34' viewBox='0 0 24 24' fill='none' stroke='%237a2e2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 6-6 6 6 6'/%3E%3C/svg%3E") no-repeat left 16px center,
+    linear-gradient(to right, var(--scroll-fade), transparent);
 }
 
 @media (max-width: 768px) {

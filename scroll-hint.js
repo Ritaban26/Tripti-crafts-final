@@ -2,7 +2,7 @@
    it's clear there is more content to swipe. Each matched element is wrapped
    in a .scroller box; the wrapper gets --more / --back modifiers reflecting
    whether content is hidden to the right / left. Styling lives in
-   warm-heritage.css (mobile only). */
+   warm-heritage.css and applies at every viewport. */
 (function () {
   var SELECTORS = ['.mcats', '.weave__grid', '.grid-4', '.widget-area', '.wc-tabs', '.account-nav'];
 
