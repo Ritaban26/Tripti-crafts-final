@@ -830,15 +830,18 @@ img { display: block; max-width: 100%; }
   .weave__grid {
     display: flex;
     grid-template-columns: none;
-    gap: 18px;
+    gap: 14px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     padding-right: 24px;
     scrollbar-width: none;
   }
   .weave__grid::-webkit-scrollbar { display: none; }
-  .weave__item { flex: 0 0 42%; scroll-snap-align: start; }
+  /* ~4 circles across, with a peek of the next; the % basis makes them
+     scale fluidly with viewport width instead of using a fixed size. */
+  .weave__item { flex: 0 0 21%; scroll-snap-align: start; }
+  .weave__circle { width: 100%; }
   .weave__label { font-size: 11px; }
 
   .favourites { padding: 44px 0 44px 24px; }

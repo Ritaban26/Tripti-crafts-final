@@ -1,443 +1,952 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tripti Crafts — Warm Heritage</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Bengali:wght@400;500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="warm-heritage.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tripti Crafts — Warm Heritage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+Bengali:wght@400;500&family=Jost:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="warm-heritage.css" />
+  </head>
+  <body>
+    <div class="announce">
+      Handwoven in Bengal · Complimentary shipping on orders over ₹5,000
+    </div>
 
-<div class="announce">Handwoven in Bengal · Complimentary shipping on orders over ₹5,000</div>
+    <div class="topbar">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden />
+      <header class="hdr">
+        <label for="nav-toggle" class="hdr__burger" aria-label="Toggle menu">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M3 6h18M3 12h18M3 18h18" />
+          </svg>
+        </label>
+        <nav class="hdr__nav hdr__nav--left">
+          <a href="shop.html">Shop</a>
+          <a href="shop.html">Mens</a>
+          <a href="shop.html">Women</a>
+          <a href="shop.html">Accessories</a>
+        </nav>
+        <a href="index.html" class="hdr__brand"
+          ><img src="logo.svg" class="hdr__logo" alt="" /><span
+            >Tripti Crafts</span
+          ></a
+        >
+        <nav class="hdr__nav hdr__nav--right">
+          <a href="our-story.html">Our Story</a>
+          <a href="shop.html">Search</a>
+          <a href="cart.html">Cart (0)</a>
+        </nav>
+        <div class="hdr__actions">
+          <a href="wishlist.html" aria-label="Wishlist">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 20.5S3.8 15.4 3.8 9.6A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 8.2 1.9c0 5.8-8.2 10.9-8.2 10.9Z"
+              />
+            </svg>
+          </a>
+          <a href="cart.html" aria-label="Cart">
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"
+              />
+              <path d="M9 8V6.5a3 3 0 1 1 6 0V8" />
+            </svg>
+          </a>
+        </div>
+      </header>
 
-<div class="topbar">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
-  <header class="hdr">
-    <label for="nav-toggle" class="hdr__burger" aria-label="Toggle menu">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </label>
-    <nav class="hdr__nav hdr__nav--left">
-      <a href="shop.html">Shop</a>
-      <a href="shop.html">Mens</a>
-      <a href="shop.html">Women</a>
-      <a href="shop.html">Accessories</a>
-    </nav>
-    <a href="index.html" class="hdr__brand"><img src="logo.svg" class="hdr__logo" alt=""><span>Tripti Crafts</span></a>
-    <nav class="hdr__nav hdr__nav--right">
-      <a href="our-story.html">Our Story</a>
-      <a href="shop.html">Search</a>
-      <a href="cart.html">Cart (0)</a>
-    </nav>
-    <div class="hdr__actions">
-      <a href="wishlist.html" aria-label="Wishlist">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5S3.8 15.4 3.8 9.6A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 8.2 1.9c0 5.8-8.2 10.9-8.2 10.9Z"/></svg>
+      <div class="msearch">
+        <form class="msearch__form" onsubmit="return false;">
+          <svg
+            class="icon msearch__icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="m16 16 4.5 4.5" />
+          </svg>
+          <input
+            type="search"
+            placeholder="Search…"
+            aria-label="Search sarees"
+          />
+        </form>
+      </div>
+
+      <nav class="mcats" aria-label="Browse categories">
+        <a href="shop.html">Collections</a>
+        <a href="shop.html">Mens</a>
+        <a href="shop.html">Women</a>
+        <a href="shop.html">Accessories</a>
+      </nav>
+    </div>
+
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="hero__text">
+          <p class="eyebrow eyebrow--accent">Since 2023 · In her memory</p>
+          <h1 class="hero__title">Every saree<br />remembers<br />a woman.</h1>
+          <p class="hero__body">
+            An intergenerational saree house honouring the memory of Tripti
+            Bagchi — handwoven pieces made slowly, with love.
+          </p>
+          <div class="btn-row">
+            <a href="shop.html" class="btn btn--solid"
+              >Explore the collection</a
+            >
+            <a href="our-story.html" class="btn btn--outline">Our story</a>
+          </div>
+        </div>
+        <div
+          class="hero__img hero__slider"
+          aria-roledescription="carousel"
+          aria-label="Featured sarees"
+        >
+          <div class="hero__track">
+            <div
+              class="hero__slide ph"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 of 4"
+            >
+              <span class="ph__cap">hero portrait · draped saree</span>
+            </div>
+            <div
+              class="hero__slide ph"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 of 4"
+            >
+              <span class="ph__cap">jamdani weave · in progress</span>
+            </div>
+            <div
+              class="hero__slide ph"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 of 4"
+            >
+              <span class="ph__cap">gold zari border · detail</span>
+            </div>
+            <div
+              class="hero__slide ph"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="4 of 4"
+            >
+              <span class="ph__cap">the maker at her loom</span>
+            </div>
+          </div>
+          <div class="orn-frame"></div>
+          <div class="orn-corner orn-corner--tl"></div>
+          <div class="orn-corner orn-corner--br"></div>
+          <div
+            class="hero__dots"
+            role="tablist"
+            aria-label="Choose slide"
+          ></div>
+        </div>
+      </section>
+
+      <!-- founder favourites -->
+      <section class="favourites">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow eyebrow--accent">Handpicked</p>
+            <h2 class="section-title">Founder's favourites</h2>
+          </div>
+          <a href="shop.html" class="link-underline">View all →</a>
+        </div>
+        <div class="grid-4">
+          <article class="product">
+            <a href="product.html" class="product__img ratio-45"
+              ><img
+                src="images/products/tc10227-noir.jpeg"
+                alt="Tusser Silk Jal Noir handwoven saree in black with copper zari floral jaal"
+              /><span class="mark">Handloom mark</span></a
+            >
+            <h3 class="product__name">Tusser Silk Jal</h3>
+            <p class="product__sub">copper zari jaal</p>
+            <p class="product__code">
+              TC10227 · <span class="product__weight">300 g</span>
+            </p>
+            <div class="stock">
+              <span class="stock__dot"></span
+              ><span class="stock__label">In stock</span>
+            </div>
+            <div class="product__foot">
+              <span class="product__price">₹28,500</span
+              ><a href="cart.html" class="add">Add</a>
+            </div>
+          </article>
+          <article class="product">
+            <a href="product.html" class="product__img ratio-45"
+              ><img
+                src="images/products/tc10228-copper.jpeg"
+                alt="Tusser Silk Jal Copper handwoven saree with floral jaal"
+            /></a>
+            <h3 class="product__name">Tissue Kora Jal</h3>
+            <p class="product__sub">peach</p>
+            <p class="product__code">
+              TC10227 · <span class="product__weight">100 g</span>
+            </p>
+            <div class="stock">
+              <span class="stock__dot"></span
+              ><span class="stock__label">In stock</span>
+            </div>
+            <div class="product__foot">
+              <span class="product__price">₹4,999</span
+              ><a href="cart.html" class="add">Add</a>
+            </div>
+          </article>
+          <article class="product">
+            <a href="product.html" class="product__img ratio-45"
+              ><img
+                src="images/products/tc10229-aubergine.jpeg"
+                alt="Tusser Silk Jal Aubergine handwoven saree with gold floral jaal"
+            /></a>
+            <h3 class="product__name">Georgette Jam Jal Work</h3>
+            <p class="product__sub">aubergine floral jaal</p>
+            <p class="product__code">
+              TC10080 · <span class="product__weight">350 g</span>
+            </p>
+            <div class="stock">
+              <span class="stock__dot"></span
+              ><span class="stock__label">In stock</span>
+            </div>
+            <div class="product__foot">
+              <span class="product__price">₹18,500</span
+              ><a href="cart.html" class="add">Add</a>
+            </div>
+          </article>
+          <article class="product">
+            <a href="product.html" class="product__img ratio-45"
+              ><img
+                src="images/products/tc10230-azure-kantha.jpeg"
+                alt="Tusser Silk Jal Azure Kantha handwoven saree in blue with kantha medallion embroidery"
+            /></a>
+            <h3 class="product__name">Cotton Emb Mirror Work</h3>
+            <p class="product__sub">blue kantha embroidery</p>
+            <p class="product__code">
+              TC10046 · <span class="product__weight">290 g</span>
+            </p>
+            <div class="stock">
+              <span class="stock__dot"></span
+              ><span class="stock__label">In stock</span>
+            </div>
+            <div class="product__foot">
+              <span class="product__price">₹4,650</span
+              ><a href="cart.html" class="add">Add</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- divider ornament -->
+      <div class="divider">
+        <span class="divider__line"></span>
+        <span class="divider__diamond"></span>
+        <span class="divider__line"></span>
+      </div>
+
+      <!-- shop by weave -->
+      <section class="weave">
+        <div class="weave__head">
+          <p class="eyebrow eyebrow--accent">Find your drape</p>
+          <h2 class="section-title">Shop by craft</h2>
+        </div>
+        <div class="weave__grid">
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Ajrakh</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Bandhej</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Kalamkari</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Appliqué</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Batik</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Jamewar</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Tissue</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Organza</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Kantha</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Zardozi</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Gujrati / Sindhi</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Banarasi</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Chikankari</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Ikkat</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Paithani</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Madhubani</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Jamdani</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Kota</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Gadwal</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Khadi</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Lambani</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Digital Print</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Katan</div></a
+          >
+          <a class="weave__item" href="shop.html"
+            ><div class="weave__circle"></div>
+            <div class="weave__label">Cutwork</div></a
+          >
+        </div>
+      </section>
+
+      <!-- hands behind — hidden -->
+      <section class="makers" hidden style="display: none">
+        <div class="makers__img">
+          <span class="ph__cap ph__cap--dark"
+            >film · the hands behind Tripti</span
+          >
+        </div>
+        <div class="makers__text">
+          <p class="eyebrow eyebrow--gold">The makers</p>
+          <h2 class="makers__title">The hands behind every weave.</h2>
+          <p class="makers__body">
+            The beauty of a handwoven saree lies as much in its making as its
+            drape. We work alongside artisan families, keeping slow craft alive.
+          </p>
+          <a href="our-story.html" class="btn btn--outline-gold"
+            >Meet the weavers</a
+          >
+        </div>
+      </section>
+
+      <!-- values strip -->
+      <section class="values">
+        <div class="values__cell">
+          <span class="values__diamond"></span
+          ><span class="values__label">100% Handwoven</span>
+        </div>
+        <div class="values__cell">
+          <span class="values__diamond"></span
+          ><span class="values__label">Natural Fibres</span>
+        </div>
+        <div class="values__cell">
+          <span class="values__diamond"></span
+          ><span class="values__label">Ready Blouse Option</span>
+        </div>
+        <div class="values__cell">
+          <span class="values__diamond"></span
+          ><span class="values__label">Ships Worldwide</span>
+        </div>
+      </section>
+
+      <!-- story ribbon -->
+      <section class="story">
+        <div class="story__img ph">
+          <span class="ph__cap">portrait of Tripti Bagchi</span>
+        </div>
+        <div class="story__text">
+          <p class="eyebrow eyebrow--accent">Our story</p>
+          <h2 class="story__title">Tripti means satisfaction.</h2>
+          <p class="body">
+            The name captures the essence of our late mother — a woman of fierce
+            energy, unshakable conviction and unwavering persistence. This
+            initiative is our heartfelt way of honouring her legacy.
+          </p>
+          <p class="body">
+            Through Tripti, we celebrate strength, values and resilience —
+            carrying her spirit forward in every handwoven saree.
+          </p>
+          <a href="our-story.html" class="link-underline"
+            >Read the full story →</a
+          >
+        </div>
+      </section>
+
+      <!-- instagram — film strip -->
+      <section class="insta">
+        <div class="insta__head">
+          <p class="eyebrow eyebrow--accent">On Instagram</p>
+          <h2 class="section-title">Follow the weave</h2>
+          <a
+            href="https://www.instagram.com/tripticrafts/"
+            class="insta__handle"
+            target="_blank"
+            rel="noopener"
+            >@tripticrafts</a
+          >
+        </div>
+        <div class="filmstrip">
+          <div class="filmstrip__track">
+            <!-- reels: cards render once, then a duplicate set (aria-hidden) makes the loop seamless -->
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch reel on Instagram"
+            >
+              <span class="insta__cap">Reel — 02</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch reel on Instagram"
+            >
+              <span class="insta__cap">Reel — 03</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch reel on Instagram"
+            >
+              <span class="insta__cap">Reel — 04</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch reel on Instagram"
+            >
+              <span class="insta__cap">Reel — 05</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch reel on Instagram"
+            >
+              <span class="insta__cap">Reel — 06</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Watch reel on Instagram"
+            >
+              <span class="insta__cap">Reel — 07</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <span class="insta__cap">Reel — 02</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <span class="insta__cap">Reel — 03</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <span class="insta__cap">Reel — 04</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <span class="insta__cap">Reel — 05</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <span class="insta__cap">Reel — 06</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+            <a
+              class="insta__tile ph"
+              href="https://www.instagram.com/tripticrafts/"
+              target="_blank"
+              rel="noopener"
+              aria-hidden="true"
+              tabindex="-1"
+            >
+              <span class="insta__cap">Reel — 07</span>
+              <span class="insta__reel" aria-hidden="true"
+                ><svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" /></svg
+              ></span>
+            </a>
+          </div>
+        </div>
+        <a
+          href="https://www.instagram.com/tripticrafts/"
+          class="link-underline insta__cta"
+          target="_blank"
+          rel="noopener"
+          >Follow @tripticrafts →</a
+        >
+      </section>
+
+      <!-- newsletter -->
+      <section class="newsletter-sec">
+        <div class="divider">
+          <span class="divider__line divider__line--sm"></span>
+          <span class="divider__diamond divider__diamond--gold"></span>
+          <span class="divider__line divider__line--sm"></span>
+        </div>
+        <p class="eyebrow eyebrow--accent">Join the Tripti circle</p>
+        <h2 class="newsletter-sec__title">
+          Her story, and the newest weaves,<br />straight to your inbox.
+        </h2>
+        <p class="newsletter-sec__body">
+          Be first to see new arrivals, hear the makers behind each drape, and
+          receive quiet notes on slow craft. No noise — just the weave.
+        </p>
+        <form class="subscribe" onsubmit="return false;">
+          <input
+            type="email"
+            placeholder="Your email address"
+            aria-label="Email address"
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter-sec__fine">
+          We send a note or two a month. Unsubscribe anytime.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__wordmark">Tripti Crafts</div>
+          <p class="footer__tag">
+            Carrying her spirit forward — handwoven sarees made slowly, with
+            love.
+          </p>
+        </div>
+        <div class="footer__col">
+          <div class="footer__label">Shop</div>
+          <div>All sarees</div>
+          <div>Shop by weave</div>
+          <div>New arrivals</div>
+          <div>Gift a saree</div>
+        </div>
+        <div class="footer__col">
+          <div class="footer__label">House</div>
+          <div><a href="our-story.html">Our story</a></div>
+          <div>The makers</div>
+          <div>Journal</div>
+          <div>Contact</div>
+        </div>
+        <div class="footer__col">
+          <div class="footer__label">Contact</div>
+          <div>hello@tripticrafts.com</div>
+          <div>Kolkata, West Bengal</div>
+          <div class="footer__social">
+            <a href="#">Instagram</a> · <a href="#">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copy">© 2026 Tripti Crafts · Handwoven in India</div>
+    </footer>
+
+    <nav class="appbar" aria-label="Quick navigation">
+      <a class="appbar__item" href="my-account.html">
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="8" r="3.5" />
+          <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
+        </svg>
+        <span>Login</span>
       </a>
-      <a href="cart.html" aria-label="Cart">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"/><path d="M9 8V6.5a3 3 0 1 1 6 0V8"/></svg>
+      <a class="appbar__item" href="shop.html">
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          aria-hidden="true"
+        >
+          <rect x="3.5" y="3.5" width="7" height="7" />
+          <rect x="13.5" y="3.5" width="7" height="7" />
+          <rect x="3.5" y="13.5" width="7" height="7" />
+          <rect x="13.5" y="13.5" width="7" height="7" />
+        </svg>
+        <span>Categories</span>
       </a>
-    </div>
-  </header>
+      <a
+        class="appbar__item appbar__item--center"
+        href="shop.html"
+        aria-label="Search"
+      >
+        <span class="appbar__fab">
+          <svg
+            class="icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="m16 16 4.5 4.5" />
+          </svg>
+        </span>
+        <span>Search</span>
+      </a>
+      <a class="appbar__item" href="shop.html">
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path
+            d="m12 3 2.3 5.1 5.7.6-4.2 3.9 1.1 5.6-4.9-2.8-4.9 2.8 1.1-5.6L4 8.7l5.7-.6Z"
+          />
+        </svg>
+        <span>New Arrivals</span>
+      </a>
+      <a class="appbar__item" href="cart.html">
+        <svg
+          class="icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path
+            d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"
+          />
+          <path d="M9 8V6.5a3 3 0 1 1 6 0V8" />
+        </svg>
+        <span>Cart</span>
+      </a>
+    </nav>
 
-  <div class="msearch">
-    <form class="msearch__form" onsubmit="return false">
-      <svg class="icon msearch__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-      <input type="search" placeholder="Search…" aria-label="Search sarees">
-    </form>
-  </div>
+    <script>
+      // bottom bar hides on scroll down, returns on scroll up
+      (function () {
+        var bar = document.querySelector(".appbar");
+        if (!bar) return;
+        var last = window.pageYOffset;
+        var THRESHOLD = 8; // ignore jitter
+        var REVEAL_AT = 90; // always visible near the top of the page
 
-  <nav class="mcats" aria-label="Browse categories">
-    <a href="shop.html">Shop</a>
-    <a href="shop.html">Mens</a>
-    <a href="shop.html">Women</a>
-    <a href="shop.html">Accessories</a>
-  </nav>
-</div>
+        window.addEventListener(
+          "scroll",
+          function () {
+            var y = window.pageYOffset;
+            var dy = y - last;
+            if (Math.abs(dy) < THRESHOLD) return;
+            last = y;
+            bar.classList.toggle("appbar--hidden", y > REVEAL_AT && dy > 0);
+          },
+          { passive: true },
+        );
+      })();
 
-<main>
-  <!-- hero -->
-  <section class="hero">
-    <div class="hero__text">
-      <p class="eyebrow eyebrow--accent">Since 2023 · In her memory</p>
-      <h1 class="hero__title">Every saree<br>remembers<br>a woman.</h1>
-      <p class="hero__body">An intergenerational saree house honouring the memory of Tripti Bagchi — handwoven pieces made slowly, with love.</p>
-      <div class="btn-row">
-        <a href="shop.html" class="btn btn--solid">Explore the collection</a>
-        <a href="our-story.html" class="btn btn--outline">Our story</a>
-      </div>
-    </div>
-    <div class="hero__img hero__slider" aria-roledescription="carousel" aria-label="Featured sarees">
-      <div class="hero__track">
-        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="1 of 4">
-          <span class="ph__cap">hero portrait · draped saree</span>
-        </div>
-        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="2 of 4">
-          <span class="ph__cap">jamdani weave · in progress</span>
-        </div>
-        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="3 of 4">
-          <span class="ph__cap">gold zari border · detail</span>
-        </div>
-        <div class="hero__slide ph" role="group" aria-roledescription="slide" aria-label="4 of 4">
-          <span class="ph__cap">the maker at her loom</span>
-        </div>
-      </div>
-      <div class="orn-frame"></div>
-      <div class="orn-corner orn-corner--tl"></div>
-      <div class="orn-corner orn-corner--br"></div>
-      <div class="hero__dots" role="tablist" aria-label="Choose slide"></div>
-    </div>
-  </section>
+      (function () {
+        var slider = document.querySelector(".hero__slider");
+        if (!slider) return;
+        var track = slider.querySelector(".hero__track");
+        var slides = Array.prototype.slice.call(
+          slider.querySelectorAll(".hero__slide"),
+        );
+        var dotsWrap = slider.querySelector(".hero__dots");
+        var count = slides.length;
+        var index = 0;
+        var AUTOPLAY_MS = 4500;
+        var timer = null;
 
-  <!-- founder favourites -->
-  <section class="favourites">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow eyebrow--accent">Handpicked</p>
-        <h2 class="section-title">Founder's favourites</h2>
-      </div>
-      <a href="shop.html" class="link-underline">View all →</a>
-    </div>
-    <div class="grid-4">
-      <article class="product">
-        <a href="product.html" class="product__img ratio-45"><img src="images/products/tc10227-noir.jpeg" alt="Tusser Silk Jal Noir handwoven saree in black with copper zari floral jaal"><span class="mark">Handloom mark</span></a>
-        <h3 class="product__name">Tusser Silk Jal</h3>
-        <p class="product__sub">copper zari jaal</p>
-        <p class="product__code">TC10227 · <span class="product__weight">300 g</span></p>
-        <div class="stock"><span class="stock__dot"></span><span class="stock__label">In stock</span></div>
-        <div class="product__foot"><span class="product__price">₹28,500</span><a href="cart.html" class="add">Add</a></div>
-      </article>
-      <article class="product">
-        <a href="product.html" class="product__img ratio-45"><img src="images/products/tc10228-copper.jpeg" alt="Tusser Silk Jal Copper handwoven saree with floral jaal"></a>
-        <h3 class="product__name">Tissue Kora Jal</h3>
-        <p class="product__sub">peach</p>
-        <p class="product__code">TC10227 · <span class="product__weight">100 g</span></p>
-        <div class="stock"><span class="stock__dot"></span><span class="stock__label">In stock</span></div>
-        <div class="product__foot"><span class="product__price">₹4,999</span><a href="cart.html" class="add">Add</a></div>
-      </article>
-      <article class="product">
-        <a href="product.html" class="product__img ratio-45"><img src="images/products/tc10229-aubergine.jpeg" alt="Tusser Silk Jal Aubergine handwoven saree with gold floral jaal"></a>
-        <h3 class="product__name">Georgette Jam Jal Work</h3>
-        <p class="product__sub">aubergine floral jaal</p>
-        <p class="product__code">TC10080 · <span class="product__weight">350 g</span></p>
-        <div class="stock"><span class="stock__dot"></span><span class="stock__label">In stock</span></div>
-        <div class="product__foot"><span class="product__price">₹18,500</span><a href="cart.html" class="add">Add</a></div>
-      </article>
-      <article class="product">
-        <a href="product.html" class="product__img ratio-45"><img src="images/products/tc10230-azure-kantha.jpeg" alt="Tusser Silk Jal Azure Kantha handwoven saree in blue with kantha medallion embroidery"></a>
-        <h3 class="product__name">Cotton Emb Mirror Work</h3>
-        <p class="product__sub">blue kantha embroidery</p>
-        <p class="product__code">TC10046 · <span class="product__weight">290 g</span></p>
-        <div class="stock"><span class="stock__dot"></span><span class="stock__label">In stock</span></div>
-        <div class="product__foot"><span class="product__price">₹4,650</span><a href="cart.html" class="add">Add</a></div>
-      </article>
-    </div>
-  </section>
+        // build dots
+        var dots = slides.map(function (_, i) {
+          var b = document.createElement("button");
+          b.className = "hero__dot";
+          b.setAttribute("role", "tab");
+          b.setAttribute("aria-label", "Go to slide " + (i + 1));
+          b.addEventListener("click", function () {
+            go(i);
+            restart();
+          });
+          dotsWrap.appendChild(b);
+          return b;
+        });
 
-  <!-- divider ornament -->
-  <div class="divider">
-    <span class="divider__line"></span>
-    <span class="divider__diamond"></span>
-    <span class="divider__line"></span>
-  </div>
+        function render(offsetPct) {
+          var base = -index * 100;
+          track.style.transform =
+            "translateX(" + (base + (offsetPct || 0)) + "%)";
+          dots.forEach(function (d, i) {
+            d.classList.toggle("is-active", i === index);
+            d.setAttribute("aria-selected", i === index ? "true" : "false");
+          });
+        }
+        function go(i) {
+          index = (i + count) % count;
+          track.style.transition = "transform .6s cubic-bezier(.4,0,.2,1)";
+          render(0);
+        }
+        function next() {
+          go(index + 1);
+        }
 
-  <!-- shop by weave -->
-  <section class="weave">
-    <div class="weave__head">
-      <p class="eyebrow eyebrow--accent">Find your drape</p>
-      <h2 class="section-title">Shop by craft</h2>
-    </div>
-    <div class="weave__grid">
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Ajrakh</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Bandhej</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Kalamkari</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Appliqué</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Batik</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Jamewar</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Tissue</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Organza</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Kantha</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Zardozi</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Gujrati / Sindhi</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Banarasi</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Chikankari</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Ikkat</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Paithani</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Madhubani</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Jamdani</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Kota</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Gadwal</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Khadi</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Lambani</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Digital Print</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Katan</div></a>
-      <a class="weave__item" href="shop.html"><div class="weave__circle"></div><div class="weave__label">Cutwork</div></a>
-    </div>
-  </section>
+        function start() {
+          stop();
+          timer = setInterval(next, AUTOPLAY_MS);
+        }
+        function stop() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+        function restart() {
+          start();
+        }
 
-  <!-- hands behind — hidden -->
-  <section class="makers" hidden style="display:none">
-    <div class="makers__img"><span class="ph__cap ph__cap--dark">film · the hands behind Tripti</span></div>
-    <div class="makers__text">
-      <p class="eyebrow eyebrow--gold">The makers</p>
-      <h2 class="makers__title">The hands behind every weave.</h2>
-      <p class="makers__body">The beauty of a handwoven saree lies as much in its making as its drape. We work alongside artisan families, keeping slow craft alive.</p>
-      <a href="our-story.html" class="btn btn--outline-gold">Meet the weavers</a>
-    </div>
-  </section>
+        // pause on hover (desktop)
+        slider.addEventListener("mouseenter", stop);
+        slider.addEventListener("mouseleave", start);
+        // pause when tab not visible
+        document.addEventListener("visibilitychange", function () {
+          if (document.hidden) stop();
+          else start();
+        });
 
-  <!-- values strip -->
-  <section class="values">
-    <div class="values__cell"><span class="values__diamond"></span><span class="values__label">100% Handwoven</span></div>
-    <div class="values__cell"><span class="values__diamond"></span><span class="values__label">Natural Fibres</span></div>
-    <div class="values__cell"><span class="values__diamond"></span><span class="values__label">Ready Blouse Option</span></div>
-    <div class="values__cell"><span class="values__diamond"></span><span class="values__label">Ships Worldwide</span></div>
-  </section>
+        // swipe / drag — works with touch and mouse
+        var startX = 0,
+          dragging = false,
+          width = 1;
+        function down(x) {
+          dragging = true;
+          startX = x;
+          width = slider.clientWidth || 1;
+          track.style.transition = "none";
+          stop();
+        }
+        function move(x) {
+          if (!dragging) return;
+          render(((x - startX) / width) * 100);
+        }
+        function up(x) {
+          if (!dragging) return;
+          dragging = false;
+          var dx = x - startX;
+          var threshold = width * 0.15;
+          if (dx <= -threshold) go(index + 1);
+          else if (dx >= threshold) go(index - 1);
+          else go(index);
+          start();
+        }
 
-  <!-- story ribbon -->
-  <section class="story">
-    <div class="story__img ph"><span class="ph__cap">portrait of Tripti Bagchi</span></div>
-    <div class="story__text">
-      <p class="eyebrow eyebrow--accent">Our story</p>
-      <h2 class="story__title">Tripti means satisfaction.</h2>
-      <p class="body">The name captures the essence of our late mother — a woman of fierce energy, unshakable conviction and unwavering persistence. This initiative is our heartfelt way of honouring her legacy.</p>
-      <p class="body">Through Tripti, we celebrate strength, values and resilience — carrying her spirit forward in every handwoven saree.</p>
-      <a href="our-story.html" class="link-underline">Read the full story →</a>
-    </div>
-  </section>
+        slider.addEventListener(
+          "touchstart",
+          function (e) {
+            down(e.touches[0].clientX);
+          },
+          { passive: true },
+        );
+        slider.addEventListener(
+          "touchmove",
+          function (e) {
+            move(e.touches[0].clientX);
+          },
+          { passive: true },
+        );
+        slider.addEventListener("touchend", function (e) {
+          up((e.changedTouches[0] || {}).clientX || startX);
+        });
 
-  <!-- instagram — film strip -->
-  <section class="insta">
-    <div class="insta__head">
-      <p class="eyebrow eyebrow--accent">On Instagram</p>
-      <h2 class="section-title">Follow the weave</h2>
-      <a href="https://www.instagram.com/tripticrafts/" class="insta__handle" target="_blank" rel="noopener">@tripticrafts</a>
-    </div>
-    <div class="filmstrip">
-      <div class="filmstrip__track">
-        <!-- reels: cards render once, then a duplicate set (aria-hidden) makes the loop seamless -->
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">
-          <span class="insta__cap">Reel — 02</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">
-          <span class="insta__cap">Reel — 03</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">
-          <span class="insta__cap">Reel — 04</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">
-          <span class="insta__cap">Reel — 05</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">
-          <span class="insta__cap">Reel — 06</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-label="Watch reel on Instagram">
-          <span class="insta__cap">Reel — 07</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
+        slider.addEventListener("mousedown", function (e) {
+          e.preventDefault();
+          down(e.clientX);
+        });
+        window.addEventListener("mousemove", function (e) {
+          move(e.clientX);
+        });
+        window.addEventListener("mouseup", function (e) {
+          up(e.clientX);
+        });
 
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-          <span class="insta__cap">Reel — 02</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-          <span class="insta__cap">Reel — 03</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-          <span class="insta__cap">Reel — 04</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-          <span class="insta__cap">Reel — 05</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-          <span class="insta__cap">Reel — 06</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-        <a class="insta__tile ph" href="https://www.instagram.com/tripticrafts/" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">
-          <span class="insta__cap">Reel — 07</span>
-          <span class="insta__reel" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-        </a>
-      </div>
-    </div>
-    <a href="https://www.instagram.com/tripticrafts/" class="link-underline insta__cta" target="_blank" rel="noopener">Follow @tripticrafts →</a>
-  </section>
-
-  <!-- newsletter -->
-  <section class="newsletter-sec">
-    <div class="divider">
-      <span class="divider__line divider__line--sm"></span>
-      <span class="divider__diamond divider__diamond--gold"></span>
-      <span class="divider__line divider__line--sm"></span>
-    </div>
-    <p class="eyebrow eyebrow--accent">Join the Tripti circle</p>
-    <h2 class="newsletter-sec__title">Her story, and the newest weaves,<br>straight to your inbox.</h2>
-    <p class="newsletter-sec__body">Be first to see new arrivals, hear the makers behind each drape, and receive quiet notes on slow craft. No noise — just the weave.</p>
-    <form class="subscribe" onsubmit="return false">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="submit">Subscribe</button>
-    </form>
-    <p class="newsletter-sec__fine">We send a note or two a month. Unsubscribe anytime.</p>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer__grid">
-    <div class="footer__brand">
-      <div class="footer__wordmark">Tripti Crafts</div>
-      <p class="footer__tag">Carrying her spirit forward — handwoven sarees made slowly, with love.</p>
-    </div>
-    <div class="footer__col">
-      <div class="footer__label">Shop</div>
-      <div>All sarees</div><div>Shop by weave</div><div>New arrivals</div><div>Gift a saree</div>
-    </div>
-    <div class="footer__col">
-      <div class="footer__label">House</div>
-      <div><a href="our-story.html">Our story</a></div><div>The makers</div><div>Journal</div><div>Contact</div>
-    </div>
-    <div class="footer__col">
-      <div class="footer__label">Contact</div>
-      <div>hello@tripticrafts.com</div><div>Kolkata, West Bengal</div>
-      <div class="footer__social"><a href="#">Instagram</a> · <a href="#">Facebook</a></div>
-    </div>
-  </div>
-  <div class="footer__copy">© 2026 Tripti Crafts · Handwoven in India</div>
-</footer>
-
-<nav class="appbar" aria-label="Quick navigation">
-  <a class="appbar__item" href="my-account.html">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
-    <span>Login</span>
-  </a>
-  <a class="appbar__item" href="shop.html">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7"/><rect x="13.5" y="3.5" width="7" height="7"/><rect x="3.5" y="13.5" width="7" height="7"/><rect x="13.5" y="13.5" width="7" height="7"/></svg>
-    <span>Categories</span>
-  </a>
-  <a class="appbar__item appbar__item--center" href="shop.html" aria-label="Search">
-    <span class="appbar__fab">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-    </span>
-    <span>Search</span>
-  </a>
-  <a class="appbar__item" href="shop.html">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.3 5.1 5.7.6-4.2 3.9 1.1 5.6-4.9-2.8-4.9 2.8 1.1-5.6L4 8.7l5.7-.6Z"/></svg>
-    <span>New Arrivals</span>
-  </a>
-  <a class="appbar__item" href="cart.html">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 8h13l-1 11.5a1.5 1.5 0 0 1-1.5 1.4H8a1.5 1.5 0 0 1-1.5-1.4Z"/><path d="M9 8V6.5a3 3 0 1 1 6 0V8"/></svg>
-    <span>Cart</span>
-  </a>
-</nav>
-
-<script>
-// bottom bar hides on scroll down, returns on scroll up
-(function () {
-  var bar = document.querySelector('.appbar');
-  if (!bar) return;
-  var last = window.pageYOffset;
-  var THRESHOLD = 8;      // ignore jitter
-  var REVEAL_AT = 90;     // always visible near the top of the page
-
-  window.addEventListener('scroll', function () {
-    var y = window.pageYOffset;
-    var dy = y - last;
-    if (Math.abs(dy) < THRESHOLD) return;
-    last = y;
-    bar.classList.toggle('appbar--hidden', y > REVEAL_AT && dy > 0);
-  }, { passive: true });
-})();
-
-(function () {
-  var slider = document.querySelector('.hero__slider');
-  if (!slider) return;
-  var track = slider.querySelector('.hero__track');
-  var slides = Array.prototype.slice.call(slider.querySelectorAll('.hero__slide'));
-  var dotsWrap = slider.querySelector('.hero__dots');
-  var count = slides.length;
-  var index = 0;
-  var AUTOPLAY_MS = 4500;
-  var timer = null;
-
-  // build dots
-  var dots = slides.map(function (_, i) {
-    var b = document.createElement('button');
-    b.className = 'hero__dot';
-    b.setAttribute('role', 'tab');
-    b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    b.addEventListener('click', function () { go(i); restart(); });
-    dotsWrap.appendChild(b);
-    return b;
-  });
-
-  function render(offsetPct) {
-    var base = -index * 100;
-    track.style.transform = 'translateX(' + (base + (offsetPct || 0)) + '%)';
-    dots.forEach(function (d, i) {
-      d.classList.toggle('is-active', i === index);
-      d.setAttribute('aria-selected', i === index ? 'true' : 'false');
-    });
-  }
-  function go(i) {
-    index = (i + count) % count;
-    track.style.transition = 'transform .6s cubic-bezier(.4,0,.2,1)';
-    render(0);
-  }
-  function next() { go(index + 1); }
-
-  function start() { stop(); timer = setInterval(next, AUTOPLAY_MS); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
-  function restart() { start(); }
-
-  // pause on hover (desktop)
-  slider.addEventListener('mouseenter', stop);
-  slider.addEventListener('mouseleave', start);
-  // pause when tab not visible
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) stop(); else start();
-  });
-
-  // swipe / drag — works with touch and mouse
-  var startX = 0, dragging = false, width = 1;
-  function down(x) {
-    dragging = true; startX = x; width = slider.clientWidth || 1;
-    track.style.transition = 'none';
-    stop();
-  }
-  function move(x) {
-    if (!dragging) return;
-    render(((x - startX) / width) * 100);
-  }
-  function up(x) {
-    if (!dragging) return;
-    dragging = false;
-    var dx = x - startX;
-    var threshold = width * 0.15;
-    if (dx <= -threshold) go(index + 1);
-    else if (dx >= threshold) go(index - 1);
-    else go(index);
-    start();
-  }
-
-  slider.addEventListener('touchstart', function (e) { down(e.touches[0].clientX); }, { passive: true });
-  slider.addEventListener('touchmove', function (e) { move(e.touches[0].clientX); }, { passive: true });
-  slider.addEventListener('touchend', function (e) { up((e.changedTouches[0] || {}).clientX || startX); });
-
-  slider.addEventListener('mousedown', function (e) { e.preventDefault(); down(e.clientX); });
-  window.addEventListener('mousemove', function (e) { move(e.clientX); });
-  window.addEventListener('mouseup', function (e) { up(e.clientX); });
-
-  render(0);
-  start();
-})();
-</script>
-<script src="scroll-hint.js"></script>
-</body>
+        render(0);
+        start();
+      })();
+    </script>
+    <script src="scroll-hint.js"></script>
+  </body>
 </html>
