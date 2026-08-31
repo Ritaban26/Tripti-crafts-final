@@ -21,9 +21,36 @@
     </label>
     <nav class="hdr__nav hdr__nav--left">
       <a href="shop.html">Shop</a>
-      <a href="shop.html">Mens</a>
-      <a href="shop.html">Women</a>
-      <a href="shop.html">Accessories</a>
+      <div class="navgroup">
+        <input type="checkbox" id="nav-mens" class="navgroup__toggle" hidden>
+        <label for="nav-mens" class="navgroup__head">Mens</label>
+        <div class="navgroup__menu">
+          <a href="shop.html">Panjabi</a>
+          <a href="shop.html">Lower</a>
+          <a href="shop.html">Johar Coat</a>
+          <a href="shop.html">Dhooti</a>
+        </div>
+      </div>
+      <div class="navgroup">
+        <input type="checkbox" id="nav-women" class="navgroup__toggle" hidden>
+        <label for="nav-women" class="navgroup__head">Women</label>
+        <div class="navgroup__menu">
+          <a href="shop.html">Sarees</a>
+          <a href="shop.html">Kurti</a>
+          <a href="shop.html">Kaftan</a>
+          <a href="shop.html">Salwar Suits</a>
+          <a href="shop.html">Dupatta / Stole</a>
+          <a href="shop.html">Ladies Jacket</a>
+        </div>
+      </div>
+      <div class="navgroup">
+        <input type="checkbox" id="nav-acc" class="navgroup__toggle" hidden>
+        <label for="nav-acc" class="navgroup__head">Accessories</label>
+        <div class="navgroup__menu">
+          <a href="shop.html">Jewelry</a>
+          <a href="shop.html">Bags</a>
+        </div>
+      </div>
     </nav>
     <a href="index.html" class="hdr__brand"><img src="logo.svg" class="hdr__logo" alt=""><span>Tripti Crafts</span></a>
     <nav class="hdr__nav hdr__nav--right">
@@ -75,15 +102,20 @@
           </label>
         </div>
         <div class="widget">
-          <h3 class="widget__title">Shop for</h3>
+          <input type="checkbox" id="filt-shopfor" class="widget__toggle" hidden checked>
+          <label for="filt-shopfor" class="widget__title">Shop for</label>
+          <div class="widget__body">
           <ul>
             <li><a href="shop.html" class="is-active">All <span class="count">36</span></a></li>
             <li><a href="shop.html">Women <span class="count">30</span></a></li>
             <li><a href="shop.html">Men <span class="count">6</span></a></li>
           </ul>
+          </div>
         </div>
         <div class="widget widget--scroll">
-          <h3 class="widget__title">Technique</h3>
+          <input type="checkbox" id="filt-technique" class="widget__toggle" hidden>
+          <label for="filt-technique" class="widget__title">Technique</label>
+          <div class="widget__body">
           <ul>
             <li><a href="shop.html">Ajrakh <span class="count">4</span></a></li>
             <li><a href="shop.html">Bandhej <span class="count">3</span></a></li>
@@ -110,9 +142,12 @@
             <li><a href="shop.html">Katan <span class="count">2</span></a></li>
             <li><a href="shop.html">Cutwork <span class="count">2</span></a></li>
           </ul>
+          </div>
         </div>
         <div class="widget">
-          <h3 class="widget__title">Fabric</h3>
+          <input type="checkbox" id="filt-fabric" class="widget__toggle" hidden>
+          <label for="filt-fabric" class="widget__title">Fabric</label>
+          <div class="widget__body">
           <ul>
             <li><a href="shop.html">Tussar <span class="count">9</span></a></li>
             <li><a href="shop.html">Silk <span class="count">7</span></a></li>
@@ -121,9 +156,12 @@
             <li><a href="shop.html">Khadi <span class="count">4</span></a></li>
             <li><a href="shop.html">Organza <span class="count">5</span></a></li>
           </ul>
+          </div>
         </div>
         <div class="widget">
-          <h3 class="widget__title">Price</h3>
+          <input type="checkbox" id="filt-price" class="widget__toggle" hidden>
+          <label for="filt-price" class="widget__title">Price</label>
+          <div class="widget__body">
           <div class="price-slider" data-min="0" data-max="50000" data-step="500">
             <div class="price-slider__rail">
               <div class="price-slider__fill"></div>
@@ -134,6 +172,7 @@
               <span class="price-slider__out price-slider__out--min">₹0</span>
               <span class="price-slider__out price-slider__out--max">₹50,000</span>
             </div>
+          </div>
           </div>
         </div>
       </aside>
