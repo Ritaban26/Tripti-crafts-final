@@ -203,8 +203,9 @@ img { display: block; max-width: 100%; }
 .hero__body { max-width: 400px; font-size: 16px; line-height: 1.7; color: var(--ink-body); margin: 30px 0 38px; }
 .btn-row { display: flex; gap: 16px; align-items: center; }
 
-.hero__img { min-height: 620px; }
+.hero__img { min-height: 620px; overflow: hidden; }
 .hero__img .ph__cap { margin: 30px; }
+.hero__img > img, .hero__slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* hero slider */
 .hero__slider { position: relative; overflow: hidden; touch-action: pan-y; cursor: grab; }
@@ -239,6 +240,7 @@ img { display: block; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__track { transition: none !important; }
+  .filmstrip__track { animation: none !important; }
 }
 .orn-frame { position: absolute; top: 22px; left: 22px; right: 22px; bottom: 22px; border: 1px solid var(--orn-line); pointer-events: none; }
 .orn-corner { position: absolute; width: 26px; height: 26px; }
@@ -255,10 +257,13 @@ img { display: block; max-width: 100%; }
 /* story ribbon */
 .story { display: grid; grid-template-columns: .9fr 1.1fr; align-items: stretch; padding: 40px 56px 90px; }
 .story__img {
+  position: relative;
   min-height: 460px;
   background: repeating-linear-gradient(45deg,var(--ph-g),var(--ph-g) 12px,var(--ph-h) 12px,var(--ph-h) 24px);
   margin-right: 56px;
+  overflow: hidden;
 }
+.story__img > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .story__text { display: flex; flex-direction: column; justify-content: center; }
 .story__title {
   font-family: 'Marcellus', serif;
@@ -331,7 +336,9 @@ img { display: block; max-width: 100%; }
   background: repeating-linear-gradient(45deg,var(--maroon-shade),var(--maroon-shade) 13px,var(--maroon-tint) 13px,var(--maroon-tint) 26px);
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
 }
+.makers__img > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .makers__img .ph__cap { margin: 18px; }
 .makers__text { padding: 88px 56px; display: flex; flex-direction: column; justify-content: center; }
 .makers__text .eyebrow { margin-bottom: 22px; }
@@ -354,14 +361,30 @@ img { display: block; max-width: 100%; }
 
 .filmstrip { overflow: hidden; width: 100%; }
 .filmstrip__track {
-  display: flex; justify-content: center; align-items: stretch;
-  gap: 6px; height: 520px; min-width: max-content; margin: 0 auto;
+  display: flex; align-items: stretch;
+  width: max-content;
+  animation: insta-scroll 48s linear infinite;
+}
+.filmstrip:hover .filmstrip__track { animation-play-state: paused; }
+/* two identical sets sit side by side; shifting by one set loops seamlessly */
+@keyframes insta-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 .insta__tile {
-  position: relative; flex: 0 0 300px; height: 100%;
+  position: relative;
+  flex: 0 0 auto; width: 270px; aspect-ratio: 9 / 16; height: auto;
+  margin-right: 14px; border-radius: 10px;
   align-items: flex-end; overflow: hidden;
 }
-.insta__tile--focal { flex-basis: 660px; }
+.insta__tile > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.insta__reel {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cream); background: rgba(94,37,37,.5);
+}
+.insta__reel svg { width: 15px; height: 15px; display: block; margin-left: 2px; }
 .insta__cap {
   position: absolute; left: 22px; bottom: 22px; z-index: 2;
   font-family: 'DM Mono', monospace; font-size: 12px;
@@ -479,12 +502,13 @@ img { display: block; max-width: 100%; }
 .chapter--warm { background: var(--cream-warm); padding-top: 60px; }
 .chapter__media { align-self: stretch; }
 .chapter__img {
+  position: relative;
   min-height: 480px; height: 100%;
   background: repeating-linear-gradient(45deg,var(--ph-g),var(--ph-g) 12px,var(--ph-h) 12px,var(--ph-h) 24px);
   align-items: flex-end;
   overflow: hidden;
 }
-.chapter__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.chapter__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .chapter--rev .chapter__media { order: 2; }
 .chapter__text { max-width: 520px; }
 .chapter__num { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--green); margin: 0 0 18px; }
@@ -524,7 +548,8 @@ img { display: block; max-width: 100%; }
 .threads__head .eyebrow { margin-bottom: 14px; }
 .threads__lead { font-size: 16px; line-height: 1.8; color: var(--ink-body); margin: 18px 0 0; }
 .threads__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; max-width: 1080px; margin: 0 auto; }
-.thread__img { aspect-ratio: 4/5; background: repeating-linear-gradient(135deg,var(--ph-i),var(--ph-i) 10px,var(--ph-j) 10px,var(--ph-j) 20px); align-items: flex-end; }
+.thread__img { position: relative; aspect-ratio: 4/5; overflow: hidden; background: repeating-linear-gradient(135deg,var(--ph-i),var(--ph-i) 10px,var(--ph-j) 10px,var(--ph-j) 20px); align-items: flex-end; }
+.thread__img > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .thread__region { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--green-bright); margin: 18px 0 6px; }
 .thread__name { font-family: 'Marcellus', serif; font-weight: 400; font-size: 25px; margin: 0 0 10px; color: var(--ink-heading); }
 .thread__note { font-size: 14px; line-height: 1.7; color: var(--ink-body); margin: 0; }
@@ -562,6 +587,25 @@ img { display: block; max-width: 100%; }
 .lexicon__bn { display: block; font-family: 'Noto Serif Bengali', serif; font-size: 30px; color: var(--green); margin-bottom: 8px; }
 .lexicon__en { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: color-mix(in srgb, var(--green) 55%, var(--ink-muted)); }
 
+/* stacked story chapters — sticky pile on scroll (à la card stack) */
+.story-stack { position: relative; z-index: 0; }
+.story-stack > section {
+  position: sticky;
+  top: 0;
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+  box-shadow: 0 -16px 40px rgba(51, 42, 32, .13);
+}
+/* opaque backgrounds so each incoming card fully hides the one beneath */
+.story-stack > .chapter { background: var(--cream); }
+.story-stack > .chapter--warm { background: var(--cream-warm); }
+.story-stack > .belief { background: color-mix(in srgb, var(--green) 9%, var(--cream)); border-top: 0; border-bottom: 0; }
+/* stagger the pin so each card's top edge peeks — the stack reads as layers */
+.story-stack > section:nth-child(1) { top: 0; }
+.story-stack > section:nth-child(2) { top: 26px; }
+.story-stack > section:nth-child(3) { top: 52px; }
+.story-stack > section:nth-child(4) { top: 78px; }
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .ostory-hero { grid-template-columns: 1fr; gap: 34px; padding: 40px 24px 44px; text-align: center; }
@@ -582,6 +626,9 @@ img { display: block; max-width: 100%; }
   .chapter__text { margin: 0 auto; }
   .chapter__title { font-size: 28px; }
   .chapter__quote { text-align: left; font-size: 18px; }
+
+  /* keep the story sections in normal flow on small screens */
+  .story-stack > section { position: static; top: auto; border-radius: 0; box-shadow: none; }
 
   .belief { padding: 48px 24px; }
   .belief__title { font-size: 28px; }
@@ -811,9 +858,7 @@ img { display: block; max-width: 100%; }
 
   .insta { padding: 56px 0 60px; }
   .insta__head { margin-bottom: 28px; padding: 0 24px; }
-  .filmstrip__track { height: 300px; gap: 4px; }
-  .insta__tile { flex-basis: 180px; }
-  .insta__tile--focal { flex-basis: 300px; }
+  .insta__tile { width: 180px; margin-right: 10px; }
   .insta__cap { left: 12px; bottom: 12px; font-size: 10px; letter-spacing: .16em; padding: 4px 7px; }
   .insta__cta { margin-top: 30px; }
 

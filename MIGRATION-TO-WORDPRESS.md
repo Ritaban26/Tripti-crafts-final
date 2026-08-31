@@ -1,10 +1,41 @@
 # Tripti Crafts — Migration Plan: Static Site → Custom Classic WooCommerce Theme
 
+> **STATUS (2026-08-31): BUILT.** The theme now exists at [`tripti-crafts/`](tripti-crafts/) in this
+> repo (see its `README-THEME.md` for install/seed instructions) and is deployed & verified on the
+> Local site **tripti-crafts-staging** (`http://tripti-crafts-staging.local`) with WooCommerce +
+> ACF (free). The static `.html` files remain as design reference. This document is the record of
+> the plan and its rationale.
+
 **Decision:** Build toward a **classic PHP WordPress theme** (not a block/FSE theme, not headless).
 **Status:** Planning only. No files have been moved yet — this document is the roadmap.
 **Goal of this doc:** Reorganize the *current static project* so that the eventual hand-off into a
 classic PHP theme is mostly mechanical (copy → rename → sprinkle PHP), with every structural
 choice justified against WordPress's official documentation.
+
+---
+
+## 0. Governing principle — theme = layout only, all content is admin-editable
+
+> **The custom theme supplies the fixed layout, design, and structure — nothing else.**
+> **Every image and every piece of text on every page is entered and edited by the admin from the
+> WordPress dashboard, with no re-upload of theme files, ever.**
+
+Concretely this means the theme ships with **zero hardcoded user-facing content**. There are no baked-in
+prices, headings, paragraphs, captions, alt text, button labels, hero photos, or section images. The
+theme only defines *where* things go and *how* they look; the admin fills in *what* they say and show.
+
+**Consequences that drive the whole build (non-negotiable):**
+- **Every `<img>`** on every page → sourced from the Media Library via a WooCommerce image, a
+  Customizer image control, or an ACF image field. No image file is referenced directly from the theme
+  except purely decorative chrome (e.g. the SVG ornaments) — even the logo is a Customizer upload.
+- **Every visible string** → sourced from a product field, a Page body, a menu, a Customizer setting,
+  or an ACF field. Placeholder/default text may ship as a fallback, but is always overridable.
+- **Alt text and captions count as content too** → each image field carries its own editable
+  alt/caption, so accessibility text is admin-managed, not frozen in markup.
+- The **only** things that require touching theme files afterward are *layout, CSS, and adding a
+  brand-new kind of section* — i.e. design changes, never content changes.
+
+§8 is the exhaustive, page-by-page realization of this principle.
 
 ---
 
@@ -244,6 +275,87 @@ your call on these before executing §5:
 4. **When you're ready to actually build the theme,** I'll need a local WordPress + WooCommerce
    environment to test against (Local by Flywheel, `wp-env`, or Studio). That runs on your machine; I
    don't need any special access — just tell me which you'll use and I'll target it.
+
+---
+
+## 8. Content editability map — what the admin can change from the dashboard
+
+**Principle:** anything the admin should edit *without a developer or a re-upload* must be stored as
+**content (database)**, never hardcoded in a theme file. The theme reads it and renders it. Only the
+*design/layout/logic* stays in files.
+
+**Recommended storage per region** (three mechanisms):
+- **WooCommerce** → products, prices, stock, product images, categories.
+- **Pages + block editor** → long-form page bodies (Our Story, FAQ, Shipping, Returns…).
+- **Customizer** → a few global values (announce bar, footer contact, social links).
+- **Advanced Custom Fields (ACF)** → structured homepage/section content (hero slides, story
+  paragraphs, section images). Recommended because it gives the admin clean, labeled fields and
+  repeaters (e.g. "add another hero slide", "add another story line") with no code.
+
+### Homepage (`front-page.php`) — every region admin-editable
+
+| Region (in `index.html`) | Becomes editable via | Admin action later |
+|---|---|---|
+| Announce bar text | Customizer (or ACF options) | Type new shipping-offer text |
+| Hero eyebrow / title / body / button labels | ACF text fields | Edit copy inline in dashboard |
+| **Hero slider images + captions** | **ACF repeater** (image + caption per slide) | Upload hero images later; add/remove/reorder slides |
+| Founder's favourites | WooCommerce (featured products) | Mark products as featured |
+| Shop-by-weave tiles (label + image) | ACF repeater (or product categories) | Swap weave images/labels |
+| Values strip (100% Handwoven…) | ACF repeater | Edit/add value items |
+| **Story section text** | **ACF textarea / WYSIWYG** | **Add a few more lines to the story later** |
+| Story section image | ACF image field | Swap the portrait later |
+| Instagram section | ACF repeater or Instagram plugin | Update handle/tiles |
+| Newsletter copy | ACF text (form via plugin) | Edit heading/blurb |
+
+### Our Story / About (`our-story.html`)
+
+| Region | Editable via | Admin action |
+|---|---|---|
+| Body copy | Page block editor **or** ACF fields | Rewrite/extend text |
+| **About images** | ACF image fields (or image blocks in the editor) | **Upload/replace images later** |
+
+### Global (header/footer, all pages)
+
+| Region | Editable via | Admin action |
+|---|---|---|
+| Header nav links | Appearance → Menus | Add/rename/reorder links |
+| Category nav | WooCommerce product categories | Manage categories |
+| Logo | Customizer (Site Identity) | Upload a new logo |
+| Footer email / address / socials | Customizer or ACF options | Update contact details |
+
+### Shop & Product pages (`archive-product.php`, `single-product.php`)
+
+| Region | Editable via | Admin action |
+|---|---|---|
+| Every product image / gallery | WooCommerce product → Images | Upload/replace per product |
+| Product name, price, code, stock, description | WooCommerce product fields | Edit per product |
+| Category names, filter sidebar terms | WooCommerce categories/attributes | Manage taxonomy |
+| Shop page intro heading/lead | ACF fields on the Shop page | Edit copy |
+
+### Content pages (Contact, FAQ, Shipping, Returns, Exchange, Saree Care, Track Order)
+
+| Region | Editable via | Admin action |
+|---|---|---|
+| All body text | Page block editor | Rewrite freely |
+| **All images on these pages** | Media Library via image blocks / ACF image fields | Upload/replace anytime |
+| Headings, eyebrows, contact details | Page editor / ACF fields | Edit inline |
+
+> These 7 pages become ordinary WordPress **Pages** — the admin owns 100% of their text and images
+> from the editor. The theme only styles them.
+
+### What still needs a developer + file change (correct boundary)
+- Adding a **new type of section** or changing the **layout/CSS**.
+- New **template logic** or WooCommerce template overrides.
+- New **field definitions** (e.g. adding a brand-new editable region → register the ACF field once).
+
+> Net effect: after build, the admin freely uploads hero images, swaps About photos, extends the
+> story copy, edits every product, and updates menus — all from the dashboard, zero re-uploads.
+> Only structural/design changes touch the theme files.
+
+**New open question (adds to §7):** confirm we'll use **ACF** (free plugin) for structured homepage/
+section fields. It's the standard choice and makes the hero/story/section editing above possible with
+labeled dashboard fields. Alternative is hand-rolled Customizer settings (more code, clunkier admin
+UI for repeaters). *Recommendation: ACF.*
 
 ---
 
